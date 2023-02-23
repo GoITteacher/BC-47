@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
-    <a href="./index2.html">SCROLL</a>
+    <a href="./index scroll.html">SCROLL</a>
     <div class="header">
         <form class="form-inline search-form js-search-form">
             <div class="form-group">
@@ -33,18 +33,19 @@
 
     <button disabled
       type="button"
-      class="btn btn-primary button js-btn-load"
+      class="btn btn-primary button js-btn-prev"
       data-action="load-more"
     >
-      <span
-        class="spinner-border spinner-border-sm spinner is-hidden"
-        role="status"
-        aria-hidden="true"
-      ></span>
-
-      <span class="label">Показать ещё</span>
+      <span class="label">Prev</span>
+    </button>
+    <button disabled
+      type="button"
+      class="btn btn-primary button js-btn-next"
+      data-action="load-more"
+    >
+      <span class="label">Next</span>
     </button>
 
-    <script src="./js/01-script.js"  type="module"></script>
+    <script src="./js/03-script.js"  type="module"></script>
 </body>
 </html>
