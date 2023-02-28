@@ -1,53 +1,54 @@
-import axios from 'axios';
+const BASE_URL = 'http://localhost:3000';
 
 export class BooksAPI {
-  #BASE_URL = 'http://localhost:3000/books';
-
   getBooks() {
-    return fetch(this.#BASE_URL).then(res => res.json());
+    return fetch(`${BASE_URL}/books`).then(response => response.json());
   }
 
-  createBook(newBook) {
-    return fetch(this.#BASE_URL, {
+  createBook(book) {
+    const options = {
       method: 'POST',
-      body: JSON.stringify(newBook),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
       },
-    }).then(res => res.json());
-  }
-
-  createBookByAxios(newBook) {
-    return axios.post(this.#BASE_URL, newBook).then(data => {
-      console.log(data);
-      return data;
-    });
-  }
-
-  updateBook(book) {
-    const id = book.id;
-    return fetch(`${this.#BASE_URL}/${id}`, {
-      method: 'PATCH',
       body: JSON.stringify(book),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    }).then(res => res.json());
+    };
+
+    return fetch(`${BASE_URL}/books`, options).then(response =>
+      response.json(),
+    );
   }
 
   resetBook(book) {
-    const id = book.id;
-    return fetch(`${this.#BASE_URL}/${id}`, {
+    const options = {
       method: 'PUT',
-      body: JSON.stringify(book),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
       },
-    }).then(res => res.json());
+      body: JSON.stringify(book),
+    };
+
+    return fetch(`${BASE_URL}/books/${book.id}`, options).then(response =>
+      response.json(),
+    );
+  }
+
+  updateBook(book) {
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(book),
+    };
+
+    return fetch(`${BASE_URL}/books/${book.id}`, options).then(response =>
+      response.json(),
+    );
   }
 
   deleteBook(id) {
-    return fetch(`${this.#BASE_URL}/${id}`, {
+    fetch(`${BASE_URL}/books/${id}`, {
       method: 'DELETE',
     });
   }
