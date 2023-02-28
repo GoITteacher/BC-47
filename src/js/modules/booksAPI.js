@@ -1,11 +1,15 @@
 const BASE_URL = 'http://localhost:3000'; 
 
 export class BooksAPI {
-  getBooks() {
-    return fetch(`${BASE_URL}/books`).then(response => response.json());
+
+  async getBooks() {
+    const response = await fetch(`${BASE_URL}/books`);
+    const data = await response.json();
+
+    return data;
   }
 
-  createBook(book) {
+  async createBook(book) {
     const options = {
       method: 'POST',
       headers: {
@@ -14,12 +18,13 @@ export class BooksAPI {
       body: JSON.stringify(book),
     };
 
-    return fetch(`${BASE_URL}/books`, options).then(response =>
-      response.json(),
-    );
+    const response = await fetch(`${BASE_URL}/books`, options);
+    const data = await response.json();
+    return data;
   }
 
-  resetBook(book) {
+  async resetBook(book) {
+    console.log(123);
     const options = {
       method: 'PUT',
       headers: {
@@ -28,12 +33,12 @@ export class BooksAPI {
       body: JSON.stringify(book),
     };
 
-    return fetch(`${BASE_URL}/books/${book.id}`, options).then(response =>
-      response.json(),
-    );
+
+    const response = await fetch(`${BASE_URL}/books/${book.id}`, options)
+    return response.json()
   }
 
-  updateBook(book) {
+  async updateBook(book) {
     const options = {
       method: 'PATCH',
       headers: {
@@ -42,9 +47,9 @@ export class BooksAPI {
       body: JSON.stringify(book),
     };
 
-    return fetch(`${BASE_URL}/books/${book.id}`, options).then(response =>
-      response.json(),
-    );
+    const response = await fetch(`${BASE_URL}/books/${book.id}`, options)
+    return response.json()
+    
   }
 
   deleteBook(id) {

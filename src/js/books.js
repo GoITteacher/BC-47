@@ -1,5 +1,5 @@
 import '../css/common.css';
-import { BooksAPI } from './modules/booksAPI';
+import { BooksAPI } from './modules/booksAPIV2.js';
 
 const booksAPI = new BooksAPI();
 
@@ -13,9 +13,12 @@ const refs = {
 };
 
 // =====================================================
-booksAPI.getBooks().then(books => {
+
+
+booksAPI.getBooks().then((books)=> {
   renderBooks(books);
 });
+
 
 function renderBooks(books) {
   const markup = books
@@ -32,7 +35,7 @@ function renderBooks(books) {
   refs.bookList.innerHTML = markup;
 }
 
-refs.createForm.addEventListener('submit', e => {
+refs.createForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -62,12 +65,25 @@ refs.createForm.addEventListener('submit', e => {
     refs.bookList.insertAdjacentHTML('beforeend', markup);
   });
 
+
+
+  const newBook = await booksAPI.createBook(book)
+    const markup = `
+    <li data-id="${newBook.id}" class="card articles list-item">
+    - ${newBook.title}<br>
+    - ${newBook.author}<br>
+    </li>
+    `;
+
+    refs.bookList.insertAdjacentHTML('beforeend', markup);
+ 
+
   e.target.reset();
 });
 
 // ====================
 
-refs.resetForm.addEventListener('submit', e => {
+refs.resetForm.addEventListener('submit', async e => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -79,7 +95,7 @@ refs.resetForm.addEventListener('submit', e => {
     book[key] = value;
   }
 
-  booksAPI.resetBook(book).then(updatedBook => {
+  await booksAPI.resetBook(book)
     const oldBook = refs.bookList.querySelector(`[data-id="${book.id}"]`);
 
     const markup = `
@@ -91,13 +107,13 @@ refs.resetForm.addEventListener('submit', e => {
 
     oldBook.insertAdjacentHTML('afterend', markup);
     oldBook.remove();
-  });
+  
 
   e.target.reset();
 });
 
 // =========================
-refs.updateForm.addEventListener('submit', e => {
+refs.updateForm.addEventListener('submit', async e => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -111,18 +127,17 @@ refs.updateForm.addEventListener('submit', e => {
     }
   }
 
-  booksAPI.updateBook(book).then(updatedBook => {
-    const oldBook = refs.bookList.querySelector(`[data-id="${book.id}"]`);
-    const markup = `
-    <li data-id="${updatedBook.id}" class="card articles list-item">
-    - ${updatedBook.title}<br>
-    - ${updatedBook.author}<br>
-    </li>
-    `;
-    oldBook.insertAdjacentHTML('afterend', markup);
-    oldBook.remove();
-  });
-
+  const updatedBook = await booksAPI.updateBook(book);
+  const oldBook = refs.bookList.querySelector(`[data-id="${book.id}"]`);
+  const markup = `
+  <li data-id="${updatedBook.id}" class="card articles list-item">
+  - ${updatedBook.title}<br>
+  - ${updatedBook.author}<br>
+  </li>
+  `;
+  oldBook.insertAdjacentHTML('afterend', markup);
+  oldBook.remove();
+  
   e.target.reset();
 });
 
