@@ -62,5 +62,5 @@
 
 ## Посилання
 
-- [FIGMA](https://www.figma.com/file/ieXHCTVNre6afLNCW0cDFc/Filmoteka?node-id=0%3A1)
-- [TЗ](https://docs.google.com/spreadsheets/d/1Z26Jc5WlgcoD8r_Xci6R5vcCHtKFfESoJFhZQ2eh77E/edit#gid=0)
+- [FIGMA](https://www.figma.com/file/efipxuF66Yy3gPn7UPbQPr/Cocktails?node-id=3319%3A1699&t=CXw9FYksLb9IQMaL-0)
+- [TЗ](https://docs.google.com/spreadsheets/d/1F5yEEwP7VvIVLlXqBPw9TFtvF7coBnWf2qpEKiWDRMo/edit?usp=sharing)
