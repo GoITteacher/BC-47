@@ -2,19 +2,25 @@
 
 ## Repo
 
-- Create Project
-- Invite Colobarators
+- Create Project (add Readme and gitignore)
+- Invite Collaborators (Settings->Collaborators->AddPeople)
 - Create branch dev
 - Change Settings
   1. Go to settings
   1. go to branches
   1. Add Rule
-  1. For main selected all
-  1. For dev selected first 6 items
+  1. For MAIN selected all items
+  1. For DEV selected first 2 items
+- Change Setting 2
+  1. Settings->Branches->
+  1. DefaultBranch -> SwitchToAnotherBranch
+  1. Потрібно натиснути на дві стрілочки і змінити main на dev
 
 ## Project
 
-- Download [Parcel](https://github.com/goitacademy/parcel-project-template)
+- Склонувати свій репозиторій
+- У своєму репозиторію перейти на гілку dev - `git checkout dev`
+- Завантажити [Parcel](https://github.com/goitacademy/parcel-project-template)
 - Розархірувати файли парселю до себе в проєкт
 - У папці partials створити під кожну секцію окремий HTML файл і підключити ці
   файли у головний файл index.hml
@@ -31,7 +37,7 @@
      таблетка, десктоп)
 - Підключити усі scss файли до файлу main.scss через дерективу @import
 
-## [#](https://docs.google.com/document/d/1PvwscZhKhXM_ow0_RMJEWJ2xgtsEb65lLeGG3mEzFMs/edit) Trello
+## [For ScrumMaster Trello](https://docs.google.com/document/d/1PvwscZhKhXM_ow0_RMJEWJ2xgtsEb65lLeGG3mEzFMs/edit)
 
 - Потрібно додати колонки:
 
