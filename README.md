@@ -70,3 +70,5 @@
 
 - [FIGMA](https://www.figma.com/file/efipxuF66Yy3gPn7UPbQPr/Cocktails?node-id=3319%3A1699&t=CXw9FYksLb9IQMaL-0)
 - [TЗ](https://docs.google.com/spreadsheets/d/1F5yEEwP7VvIVLlXqBPw9TFtvF7coBnWf2qpEKiWDRMo/edit?usp=sharing)
+- [Інструкція](https://github.com/GoITteacher/BC-47/blob/project/README.md)
+- [Команди GIT-а](https://github.com/GoITteacher/BC-47/blob/project/GIT_COMMANDS.md)
